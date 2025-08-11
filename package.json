@@ -1,0 +1,30 @@
+{
+  "name": "log720-lab3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "ganache": "ganache-cli --port 7545",
+    "pubsub": "ts-node scripts/task7_pubsub.ts",
+    "student": "ts-node scripts/task6_student.ts",
+    "truffle": "truffle migrate --reset --network development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ganache-cli": "^6.12.2",
+    "truffle": "^5.11.5",
+    "web3": "^4.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "@types/web3": "^1.0.20",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

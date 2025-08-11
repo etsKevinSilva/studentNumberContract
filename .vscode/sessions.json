@@ -1,0 +1,47 @@
+{
+  "$schema": "https://cdn.statically.io/gh/nguyenngoclongdev/cdn/main/schema/v11/terminal-keeper.json",
+  "theme": "tribe",
+  "active": "default",
+  "activateOnStartup": true,
+  "keepExistingTerminals": false,
+  "sessions": {
+    "default": [
+      {
+        "name": "truffle",
+        "icon": "server",
+        "color": "terminal.ansiWhite",
+        "cwd": "./",
+        "commands": [
+          "npm run truffle"
+        ]
+      },
+      {
+        "name": "ganache",
+        "icon": "server",
+        "color": "terminal.ansiWhite",
+        "cwd": "./",
+        "commands": [
+          "npm run ganache"
+        ]
+      },
+      {
+        "name": "student",
+        "icon": "server",
+        "color": "terminal.ansiWhite",
+        "cwd": "./",
+        "commands": [
+          "npm run student"
+        ]
+      },
+      {
+        "name": "pubsub",
+        "icon": "server",
+        "color": "terminal.ansiWhite",
+        "cwd": "./",
+        "commands": [
+          "npm run pubsub"
+        ]
+      }
+    ]
+  }
+}
