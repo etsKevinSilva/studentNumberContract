@@ -7,21 +7,21 @@
   "sessions": {
     "default": [
       {
-        "name": "truffle",
-        "icon": "server",
-        "color": "terminal.ansiWhite",
-        "cwd": "./",
-        "commands": [
-          "npm run truffle"
-        ]
-      },
-      {
         "name": "ganache",
         "icon": "server",
         "color": "terminal.ansiWhite",
         "cwd": "./",
         "commands": [
           "npm run ganache"
+        ]
+      },
+      {
+        "name": "truffle",
+        "icon": "server",
+        "color": "terminal.ansiWhite",
+        "cwd": "./",
+        "commands": [
+          "npm run truffle"
         ]
       },
       {
