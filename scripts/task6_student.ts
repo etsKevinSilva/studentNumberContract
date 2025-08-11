@@ -15,7 +15,7 @@ async function main(): Promise<void> {
     "StudentContract.json"
   )) as { abi: AbiItem[]; networks: Record<string, { address: string }> };
 
-  // 3) Determine which network Ganache is using
+  // 3) Get the active network ID
   const networkId = await web3.eth.net.getId();
   const netConfig = artifact.networks[networkId.toString()];
   if (!netConfig) {
@@ -28,9 +28,11 @@ async function main(): Promise<void> {
 
   // 4) Instantiate the contract
   const student = new web3.eth.Contract(artifact.abi as any, deployedAddress);
+
+  // 5) Pick accounts
   const [deployer] = await web3.eth.getAccounts();
 
-  // 5) Write student number via setter
+  // 6) Write student number via setter
   const receipt = await student.methods.setStudentNumber(123456).send({
     from: deployer,
     value: web3.utils.toWei("0.0054", "ether"),
@@ -39,7 +41,7 @@ async function main(): Promise<void> {
   });
   console.log("setStudentNumber tx hash:", receipt.transactionHash);
 
-  // 6) Read back via getter
+  // 7) Read back via getter
   const stored = await student.methods.studentNumber().call();
   console.log("Stored student number is:", stored);
 }

@@ -35,10 +35,10 @@ async function main(): Promise<void> {
   }
   const contractAddress = netConfig.address;
 
-  // 4) Instantiate the contract after network lookup
+  // 4) Instantiate the contract
   const pubsub = new web3.eth.Contract(artifact.abi as any, contractAddress);
 
-  // 5) Pick accounts: deployer (broker), publisher, subscriber
+  // 5) Pick accounts
   const accounts = await web3.eth.getAccounts();
   const [deployer, publisher, subscriber] = accounts;
 
@@ -48,7 +48,7 @@ async function main(): Promise<void> {
   console.log("Subscriber:      ", subscriber);
   console.log("Contract address:", contractAddress, "\n");
 
-  // 6) Advertise a topic
+  // 6) Advertise the topic
   const topic = "BlockchainTopic";
   console.log(`Publisher advertises topic "${topic}"`);
   await pubsub.methods.advertise(topic).send({
@@ -66,7 +66,6 @@ async function main(): Promise<void> {
     gasPrice: web3.utils.toWei("20", "gwei"),
   });
 
-  // Log balances post-subscription
   await logEth(web3, "subscription", [publisher, subscriber]);
 
   // 8) Set up event listener for MessageReceived
@@ -87,7 +86,6 @@ async function main(): Promise<void> {
     gasPrice: web3.utils.toWei("20", "gwei"),
   });
 
-  // Wait a moment for event to fire
   await new Promise((r) => setTimeout(r, 1000));
 
   // 10) Query subscriber’s remaining balance in the contract
@@ -109,7 +107,6 @@ async function main(): Promise<void> {
     gasPrice: web3.utils.toWei("20", "gwei"),
   });
 
-  // Log balances after unsubscribe/refund
   await logEth(web3, "unsubscription", [publisher, subscriber]);
 
   process.exit(0);
